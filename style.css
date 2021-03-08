@@ -26,15 +26,92 @@ header{
 main{
     display: flex;
 }
-
+/*SECTION*/
 #InfoDeCreditValue-Section{
     width: 50%;
     height: 85vh;
     background-color: #7cfc00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+/*BOTONES DE INFORMACIÓN DE LA PAGINA*/
+
+/* PERFIL DE CREDIT VALUE*/
+.AlinearBotonesyTexto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+#btn-PerfilDeCreditValue{
+    border: none;
+    border-radius: 8%;
+}
+#img-PerfilDeCreditValue{
+    width: 25vh;  
+    margin: 5px 
+}
+#btn-PerfilDeCreditValue:hover{
+    background-color: rgb(199, 202, 202);
+    cursor: pointer;
+}
+.TextoDelBoton-informacion{
+    margin: 5% 0px;
 }
 
+/* PROCESOS DE CREDIT VALUE*/
+#btn-ProcesoDeCreditValue{
+    border: none;
+    border-radius: 8%;
+}
+#btn-ProcesoDeCreditValue:hover{
+    background-color: rgb(181, 226, 226);
+    cursor: pointer;
+}
+#img-ProcesoDeCreditValue{
+    width: 25vh;
+    margin: 5px
+}
+/*ASIDE*/
 #ColocarTarjeta-Aside{
     width: 50%;
-    height: 85vh;
-    background-color: #20b2aa;
+    height: 85vh;  
+    background-color: #20b2aa;  
+}
+#Pedir-tarjeta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28.25vh;
+}
+#input-ColocarTarjeta{
+    width: 40%;
+    height: 7vh;
+    margin: 5% 0px;
+    font-size: 25px;
+    padding-left: 8%;
+}
+#btn-ValidarTarjeta{
+    width: 30%;
+    height: 10%;
+    font-size: 285%;
+    border: none;
+    background-color: rgb(54, 54, 230);
+    color: #fff;
+    border-radius: 15%;
+}
+#btn-ValidarTarjeta:hover{
+    background-color: #2b2279;
+    cursor: pointer;
+}
+/*Mostrar pantallas*/
+#PantallaTarjetaVerdadera{
+    display: none;
+}
+#PantallaTarjetaFalsa{
+    display: none;
 }

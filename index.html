@@ -16,26 +16,37 @@
     </header>
     <main>
         <section id="InfoDeCreditValue-Section">
-            <button>
-                <img src="img/curriculum.png"/>  
-            </button>
-            <p>¿Qué es Credit Value?</p>
-            <button>
-                <img src="img/proceso.png">
-            </button>
-            <p>¿Cómo funciona Credit Value?</p>
+            <div class="AlinearBotonesyTexto">
+                <button id="btn-PerfilDeCreditValue">
+                    <img src="img/curriculum.png" id="img-PerfilDeCreditValue"/>  
+                </button>
+                <h2 class="TextoDelBoton-informacion">¿Qué es Credit Value?</h2>
+            </div>
+            <div class="AlinearBotonesyTexto">
+                <button id="btn-ProcesoDeCreditValue">
+                    <img src="img/proceso.png" id="img-ProcesoDeCreditValue"> 
+                </button>
+                 <h2 class="TextoDelBoton-informacion">¿Cómo funciona Credit Value?</h2>
+            </div>    
         </section>
+
         <aside id="ColocarTarjeta-Aside">
-            <form action="#">
-                <fieldset>
-                    <legend>
-                        Ingrese su tarjeta
-                    </legend>
-                     <input type="text">
-                     <button>Validar</button>
-                </fieldset>
-        </form> 
+            <div id="Pedir-tarjeta">
+                <h2>Ingrese su tarjeta</h2>
+                <input type="text" id="input-ColocarTarjeta">
+                <p id="AnuncioDeError">Texto</p>
+                <button id="btn-ValidarTarjeta">Validar</button>
+            </div>
+            <div id="PantallaTarjetaVerdadera">
+                <img src="img/Correcto.png"/>
+                <p>Su tarjeta es valida</p>
+            </div>
+            <div id="PantallaTarjetaFalsa">
+                <img src="img/Error.png"/>
+                <p>Su tarjeta es invalida</p>
+            </div>
         </aside>
+    
     </main>
    <script src="script.js"></script> 
 </body>
