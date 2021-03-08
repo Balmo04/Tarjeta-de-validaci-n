@@ -1,7 +1,7 @@
 const btnValidarTajeta = document.getElementById("btn-ValidarTarjeta");
 const mostrarError= document.getElementById("AnuncioDeError");
 let numTarjetaAux="";
-
+let numTarjetaArray=[];
 
 btnValidarTajeta.addEventListener("click", function(){
     rellenarInputCorrectamente();
@@ -10,6 +10,7 @@ btnValidarTajeta.addEventListener("click", function(){
 function rellenarInputCorrectamente(numTajetaAux){
     const numTarjetaIngresada= document.getElementById("input-ColocarTarjeta").value;
     numTarjetaAux=numTarjetaIngresada.trim();
+    
     if(numTarjetaAux ==="")
     {
         mostrarError.innerText="No ha ingresado nada";
@@ -23,23 +24,16 @@ function rellenarInputCorrectamente(numTajetaAux){
         revisarSiSonNumeros(numTarjetaAux);
     }
 }
-function revisarSiSonNumeros(numTarjetaAux){
-    let numTarjetaArray=[];
-    numTarjetaArray=Array.from(numTarjetaAux);
+function revisarSiSonNumeros(){
     for(let i=0; i<=15; i++)
     {
-        numTarjetaArray[i]=parseInt(numTarjetaArray[i] , 10);
-        if(numTarjetArray[i]!==i)
-        {
-            mostrarError.innerText="Lo siento, ha ingresado un dato no numérico";
-        }
-        else
-        {
-            mostrarPatallaVerdaderaOFalsa();
-        }
+        numTarjetaArray[i]=numTarjetaAux.charAt(i);
+        numTarjetaArray[i]=parseInt(numTarjetaArray[i], 10); 
+            
     }
-}
-function mostrarPatallaVerdaderaOFalsa(){3
 
+    console.log(numTarjetaArray);
+}
+function mostrarPatallaVerdaderaOFalsa(){
     mostrarError.innerText="vamo bien";
 }
