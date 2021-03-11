@@ -10,7 +10,7 @@ btnValidarTajeta.addEventListener("click", function(){
 function rellenarInputCorrectamente(numTajetaAux){
     const numTarjetaIngresada= document.getElementById("input-ColocarTarjeta").value;
     numTarjetaAux=numTarjetaIngresada.trim();
-    
+  
     if(numTarjetaAux ==="")
     {
         mostrarError.innerText="No ha ingresado nada";
@@ -24,16 +24,23 @@ function rellenarInputCorrectamente(numTajetaAux){
         revisarSiSonNumeros(numTarjetaAux);
     }
 }
+
 function revisarSiSonNumeros(){
     for(let i=0; i<=15; i++)
     {
-        numTarjetaArray[i]=numTarjetaAux.charAt(i);
-        numTarjetaArray[i]=parseInt(numTarjetaArray[i], 10); 
-            
+        numTarjetaArray[i]=parseInt(numTarjetaAux.charAt(i));
+    }  
+    if(numTarjetaArray.includes(NaN))
+    {
+        mostrarError.innerText="Ha ingresado datos no numéricos";   
     }
+    else
+    {
+        mostrarSiEsUnaTarjetaVerdaderaOFalsa();
+    }
+}
 
-    console.log(numTarjetaArray);
-}
-function mostrarPatallaVerdaderaOFalsa(){
-    mostrarError.innerText="vamo bien";
-}
+
+
+
+
