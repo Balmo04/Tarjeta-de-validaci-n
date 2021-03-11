@@ -7,10 +7,9 @@ btnValidarTajeta.addEventListener("click", function(){
     rellenarInputCorrectamente();
 });
 
-function rellenarInputCorrectamente(numTajetaAux){
+function rellenarInputCorrectamente(){
     const numTarjetaIngresada= document.getElementById("input-ColocarTarjeta").value;
     numTarjetaAux=numTarjetaIngresada.trim();
-  
     if(numTarjetaAux ==="")
     {
         mostrarError.innerText="No ha ingresado nada";
@@ -36,11 +35,40 @@ function revisarSiSonNumeros(){
     }
     else
     {
-        mostrarSiEsUnaTarjetaVerdaderaOFalsa();
+        evaluarSiEsUnaTarjetaVerdaderaOFalsa();
     }
 }
 
+function evaluarSiEsUnaTarjetaVerdaderaOFalsa(){
+    let sumaDeLosDigitos=0;
+    for(i=0; i<numTarjetaArray.length; i++)
+    {
+        if((i%2)===0)
+        {
+            numTarjetaArray[i]=numTarjetaArray[i]*2;
+            if(numTarjetaArray[i]>9)
+            {
+                numTarjetaArray[i]=numTarjetaArray[i]-1;
+            }
+        }
+        sumaDeLosDigitos=sumaDeLosDigitos+numTarjetaArray;
+    }
+    if(sumaDeLosDigitos%10===0)
+    {
+        pantallaVerdadera();
+    }
+    else
+    {
+        pantallaFalsa();
+    }
+}
 
+function pantallaVerdadera(){
+
+}
+function pantallaFalsa(){
+
+}
 
 
 
