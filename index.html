@@ -34,19 +34,20 @@
             <div id="Pedir-tarjeta">
                 <h2>Ingrese su tarjeta</h2>
                 <input type="text" id="input-ColocarTarjeta">
-                <p id="AnuncioDeError">Texto</p>
+                <p id="AnuncioDeError"></p>
                 <button id="btn-ValidarTarjeta">Validar</button>
             </div>
             <div id="PantallaTarjetaVerdadera">
-                <img src="img/Correcto.png"/>
-                <p>Su tarjeta es valida</p>
+                <img src="img/Correcto.png" class="tamañoDeImagenes"/>
+                <p id="mostrarMensajeTarjetaVerdadera" class="estiloDeLetraParaMostrarTarjeta">Su tarjeta es valida</p>
+                <button class="regresarAPantallaPedirTarjeta">Regresar</button>
             </div>
             <div id="PantallaTarjetaFalsa">
-                <img src="img/Error.png"/>
-                <p>Su tarjeta es invalida</p>
+                <img src="img/Error.png" class="tamañoDeImagenes"/>
+                <p id="mostrarMensajeTarjetaFalsa" class="estiloDeLetraParaMostrarTarjeta">Su tarjeta es invalida</p>
+                <button class="regresarAPantallaPedirTarjeta">Regresar</button>
             </div>
         </aside>
-    
     </main>
    <script src="script.js"></script> 
 </body>

@@ -1,5 +1,11 @@
 const btnValidarTajeta = document.getElementById("btn-ValidarTarjeta");
 const mostrarError= document.getElementById("AnuncioDeError");
+const divPantallaPedirTarjeta=document.getElementById("Pedir-tarjeta")
+const divPantallaVerdadera=document.getElementById("PantallaTarjetaVerdadera");
+const divPantallaFalsa=document.getElementById("PantallaTarjetaFalsa");
+const btnRegresarAPantallaDePedirTarjeta=document.getElementsByClassName("regresarAPantallaPedirTarjeta");
+const mostrarMensajeVerdadero=document.getElementById("mostrarMensajeTarjetaVerdadera");
+const mostrarMensajeFalso=document.getElementById("mostrarMensajeTarjetaFalsa");
 let numTarjetaAux="";
 let numTarjetaArray=[];
 
@@ -66,11 +72,28 @@ function evaluarSiEsUnaTarjetaVerdaderaOFalsa(){
 }
 
 function pantallaVerdadera(){
-    console.log("tarjeta verdadera");
+    divPantallaPedirTarjeta.style.display="none";
+    divPantallaFalsa.style.display="none";
+    divPantallaVerdadera.style.display="flex";
+    mostrarMensajeVerdadero.innerText="Su tarjeta :  ####-####-####-"+numTarjetaAux.substring(11,15)+" es valida";
 }
 function pantallaFalsa(){
-    console.log("tarjeta falsa");
+    divPantallaPedirTarjeta.style.display="none";
+    divPantallaVerdadera.style.display="none";
+    divPantallaFalsa.style.display="flex";
+    mostrarMensajeFalso.innerText="Su tarjeta :  ####-####-####-"+numTarjetaAux.substring(11,15)+" es invalida";
 }
 
+btnRegresarAPantallaDePedirTarjeta[0].addEventListener("click", function(){
+    regresarAPantallaPedirTarjeta();
+})
+btnRegresarAPantallaDePedirTarjeta[1].addEventListener("click", function(){
+    regresarAPantallaPedirTarjeta();
+})
 
+function regresarAPantallaPedirTarjeta(){
+    divPantallaFalsa.style.display="none";
+    divPantallaVerdadera.style.display="none";
+    divPantallaPedirTarjeta.style.display="flex";
+}
 
