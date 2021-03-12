@@ -41,17 +41,19 @@ function revisarSiSonNumeros(){
 
 function evaluarSiEsUnaTarjetaVerdaderaOFalsa(){
     let sumaDeLosDigitos=0;
-    for(i=0; i<numTarjetaArray.length; i++)
+    let numTarjetaArrayAux=[];
+    for(i=0; i<=15; i++)
     {
+        numTarjetaArrayAux[i]=numTarjetaArray[i];
         if((i%2)===0)
         {
-            numTarjetaArray[i]=numTarjetaArray[i]*2;
-            if(numTarjetaArray[i]>9)
+            numTarjetaArrayAux[i]=numTarjetaArrayAux[i]*2;
+            if(numTarjetaArrayAux[i]>9)
             {
-                numTarjetaArray[i]=numTarjetaArray[i]-1;
+                numTarjetaArrayAux[i]=(numTarjetaArrayAux[i]-10)+1;
             }
         }
-        sumaDeLosDigitos=sumaDeLosDigitos+numTarjetaArray;
+        sumaDeLosDigitos=sumaDeLosDigitos+numTarjetaArrayAux[i];
     }
     if(sumaDeLosDigitos%10===0)
     {
@@ -64,10 +66,10 @@ function evaluarSiEsUnaTarjetaVerdaderaOFalsa(){
 }
 
 function pantallaVerdadera(){
-
+    console.log("tarjeta verdadera");
 }
 function pantallaFalsa(){
-
+    console.log("tarjeta falsa");
 }
 
 
