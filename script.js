@@ -6,6 +6,8 @@ const divPantallaFalsa=document.getElementById("PantallaTarjetaFalsa");
 const btnRegresarAPantallaDePedirTarjeta=document.getElementsByClassName("regresarAPantallaPedirTarjeta");
 const mostrarMensajeVerdadero=document.getElementById("mostrarMensajeTarjetaVerdadera");
 const mostrarMensajeFalso=document.getElementById("mostrarMensajeTarjetaFalsa");
+const numTarjetaIngresada= document.getElementById("input-ColocarTarjeta");
+
 let numTarjetaAux="";
 let numTarjetaArray=[];
 
@@ -14,8 +16,7 @@ btnValidarTajeta.addEventListener("click", function(){
 });
 
 function rellenarInputCorrectamente(){
-    const numTarjetaIngresada= document.getElementById("input-ColocarTarjeta").value;
-    numTarjetaAux=numTarjetaIngresada.trim();
+    numTarjetaAux=numTarjetaIngresada.value.trim();
     if(numTarjetaAux ==="")
     {
         mostrarError.innerText="No ha ingresado nada";
@@ -26,7 +27,7 @@ function rellenarInputCorrectamente(){
     }
     else
     {
-        revisarSiSonNumeros(numTarjetaAux);
+        revisarSiSonNumeros();
     }
 }
 
@@ -37,11 +38,11 @@ function revisarSiSonNumeros(){
     }  
     if(numTarjetaArray.includes(NaN))
     {
-        mostrarError.innerText="Ha ingresado datos no numéricos";   
+        mostrarError.innerText="Ha ingresado valores no númericos";
     }
     else
     {
-        evaluarSiEsUnaTarjetaVerdaderaOFalsa();
+        evaluarSiEsUnaTarjetaVerdaderaOFalsa(); 
     }
 }
 
@@ -75,22 +76,21 @@ function pantallaVerdadera(){
     divPantallaPedirTarjeta.style.display="none";
     divPantallaFalsa.style.display="none";
     divPantallaVerdadera.style.display="flex";
-    mostrarMensajeVerdadero.innerText="Su tarjeta :  ####-####-####-"+numTarjetaAux.substring(11,15)+" es valida";
+    mostrarMensajeVerdadero.innerText="Su tarjeta :  ####-####-####-"+numTarjetaAux.substring(11,15)+"  es valida";
 }
 function pantallaFalsa(){
     divPantallaPedirTarjeta.style.display="none";
     divPantallaVerdadera.style.display="none";
     divPantallaFalsa.style.display="flex";
-    mostrarMensajeFalso.innerText="Su tarjeta :  ####-####-####-"+numTarjetaAux.substring(11,15)+" es invalida";
+    mostrarMensajeFalso.innerText="Su tarjeta :  ####-####-####-"+numTarjetaAux.substring(11,15)+"  es invalida";
 }
 
 btnRegresarAPantallaDePedirTarjeta[0].addEventListener("click", function(){
-    regresarAPantallaPedirTarjeta();
-})
+     regresarAPantallaPedirTarjeta();
+});
 btnRegresarAPantallaDePedirTarjeta[1].addEventListener("click", function(){
     regresarAPantallaPedirTarjeta();
-})
-
+});
 function regresarAPantallaPedirTarjeta(){
     divPantallaFalsa.style.display="none";
     divPantallaVerdadera.style.display="none";
