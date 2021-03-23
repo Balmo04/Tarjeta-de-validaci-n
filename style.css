@@ -159,4 +159,19 @@ main{
     text-align: justify;
     margin: 0.3px;
     padding: 0px 20%;
+    font-size: 1.2rem;
+
 }
+#txt-PerfilDeCreditValue{ 
+    font-family: 'Redressed', cursive;
+    display: none;
+}
+#txt-ProcesoDeCreditValue{
+    font-family: 'Redressed', cursive;
+    display: none;
+}
+/*
+@media screen and (min-width:[ANCHO]px) {
+    /* Nuestras nuevas reglas con este ancho o más de pantalla */
+   }
+*/ 

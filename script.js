@@ -78,6 +78,7 @@ function pantallaVerdadera(){
     divPantallaVerdadera.style.display="flex";
     mostrarMensajeVerdadero.innerText="Su tarjeta :  ####-####-####-"+numTarjetaAux.substring(11,15)+"  es valida";
 }
+
 function pantallaFalsa(){
     divPantallaPedirTarjeta.style.display="none";
     divPantallaVerdadera.style.display="none";
@@ -88,12 +89,52 @@ function pantallaFalsa(){
 btnRegresarAPantallaDePedirTarjeta[0].addEventListener("click", function(){
      regresarAPantallaPedirTarjeta();
 });
+
 btnRegresarAPantallaDePedirTarjeta[1].addEventListener("click", function(){
     regresarAPantallaPedirTarjeta();
 });
+
 function regresarAPantallaPedirTarjeta(){
     divPantallaFalsa.style.display="none";
     divPantallaVerdadera.style.display="none";
     divPantallaPedirTarjeta.style.display="flex";
+}
+
+const btnPerfil=document.getElementById("btn-PerfilDeCreditValue");
+const btnProceso=document.getElementById("btn-ProcesoDeCreditValue");
+const txtPerfilDeCreditValue=document.getElementById("txt-PerfilDeCreditValue");
+const txtProcesoDeCreditValue=document.getElementById("txt-ProcesoDeCreditValue");
+let boolPerfil=false;
+let boolProceso=false;
+
+
+btnPerfil.addEventListener("click", function(){
+    mostrarPerfilDeCreditValue();
+})
+
+btnProceso.addEventListener("click", function(){
+    mostrarProcesoDeCreditValue();
+})
+
+function mostrarPerfilDeCreditValue(){
+    boolPerfil=!boolPerfil;
+    if(boolPerfil){
+        txtPerfilDeCreditValue.style.display="flex";
+    }
+    else
+    {
+        txtPerfilDeCreditValue.style.display="none";
+    }
+}
+
+function mostrarProcesoDeCreditValue(){
+    boolProceso=!boolProceso;
+    if(boolProceso){
+        txtProcesoDeCreditValue.style.display="flex";
+    }
+    else
+    {
+        txtProcesoDeCreditValue.style.display="none";
+    }
 }
 
