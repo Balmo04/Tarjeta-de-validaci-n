@@ -170,8 +170,39 @@ main{
     font-family: 'Redressed', cursive;
     display: none;
 }
-/*
-@media screen and (min-width:[ANCHO]px) {
-    /* Nuestras nuevas reglas con este ancho o más de pantalla */
-   }
-*/ 
+
+@media screen and (min-width:300px) and (max-width:700px) {
+main{
+    display: block;
+    width: 100vw;
+    height: 175vh;
+    margin: 0%;
+}
+header{
+    order: 1;
+    width: 100vw;
+    height: 15vh;
+    position: fixed;
+}
+#InfoDeCreditValue-Section{
+    order: 3;
+    width: 100vw;
+    height: 100vh;
+}
+#ColocarTarjeta-Aside{
+    order: 2;
+    width: 100vw;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#Pedir-tarjeta{
+    margin: 0%;
+}
+.AlinearBotonesyTexto{
+    margin:0%;
+}
+
+}/*Screen 300x800*/
