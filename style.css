@@ -99,7 +99,12 @@ main{
     margin: 2.5% 0px;
     font-size: 1.5rem;
     text-align: center;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px groove #000;
 }
+
 #btn-ValidarTarjeta{
     width: 15vw;
     height: 1.5em;
@@ -107,7 +112,7 @@ main{
     border: none;
     background-color: rgb(54, 54, 230);
     color: #fff;
-    border-radius: 15rem;
+    border-radius: 8px;
 }
 #btn-ValidarTarjeta:hover{
     background-color: #2b2279;
@@ -172,22 +177,31 @@ main{
 }
 
 @media screen and (min-width:300px) and (max-width:700px) {
+body{
+    height: auto;
+}
+
 main{
     display: block;
     width: 100vw;
-    height: 175vh;
+    height: 185vh;
     margin: 0%;
 }
 header{
     order: 1;
     width: 100vw;
-    height: 15vh;
+    height: 20%;
     position: fixed;
 }
 #InfoDeCreditValue-Section{
     order: 3;
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px 0px 50px;
 }
 #ColocarTarjeta-Aside{
     order: 2;
@@ -204,5 +218,7 @@ header{
 .AlinearBotonesyTexto{
     margin:0%;
 }
-
+#btn-PerfilDeCreditValue{
+    margin-top:45%;
+}
 }/*Screen 300x800*/

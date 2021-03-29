@@ -6,7 +6,7 @@ const divPantallaFalsa=document.getElementById("PantallaTarjetaFalsa");
 const btnRegresarAPantallaDePedirTarjeta=document.getElementsByClassName("regresarAPantallaPedirTarjeta");
 const mostrarMensajeVerdadero=document.getElementById("mostrarMensajeTarjetaVerdadera");
 const mostrarMensajeFalso=document.getElementById("mostrarMensajeTarjetaFalsa");
-const numTarjetaIngresada= document.getElementById("input-ColocarTarjeta");
+let numTarjetaIngresada= document.getElementById("input-ColocarTarjeta");
 
 let numTarjetaAux="";
 let numTarjetaArray=[];
@@ -16,13 +16,17 @@ btnValidarTajeta.addEventListener("click", function(){
 });
 
 function rellenarInputCorrectamente(){
-    numTarjetaAux=numTarjetaIngresada.value.trim();
+   
+    numTarjetaAux=numTarjetaIngresada.value;
+    numTarjetaAux=numTarjetaAux.trim();
     if(numTarjetaAux ==="")
     {
+        numTarjetaIngresada.style.borderBottom="3.5px outset red";
         mostrarError.innerText="No ha ingresado nada";
     }
     else if(numTarjetaAux.length!==16)
     {
+        numTarjetaIngresada.style.borderBottom="3.5px outset red";
         mostrarError.innerText="Ha ingresado "+numTarjetaAux.length+" digitos pero son 16 digitos";
     }
     else
@@ -47,6 +51,7 @@ function revisarSiSonNumeros(){
 }
 
 function evaluarSiEsUnaTarjetaVerdaderaOFalsa(){
+    numTarjetaIngresada.style.borderBottom="2px solid black";
     let sumaDeLosDigitos=0;
     let numTarjetaArrayAux=[];
     for(i=0; i<=15; i++)
@@ -98,6 +103,8 @@ function regresarAPantallaPedirTarjeta(){
     divPantallaFalsa.style.display="none";
     divPantallaVerdadera.style.display="none";
     divPantallaPedirTarjeta.style.display="flex";
+    numTarjetaIngresada.value=numTarjetaIngresada.value="";
+    mostrarError.innerText="";
 }
 
 const btnPerfil=document.getElementById("btn-PerfilDeCreditValue");
