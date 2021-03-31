@@ -10,15 +10,36 @@ let numTarjetaIngresada= document.getElementById("input-ColocarTarjeta");
 
 let numTarjetaAux="";
 let numTarjetaArray=[];
+let temporal="";
 
-btnValidarTajeta.addEventListener("click", function(){
-    rellenarInputCorrectamente();
+numTarjetaIngresada.addEventListener("keydown", function(event){
+ AgregarGuion(event);
 });
 
-function rellenarInputCorrectamente(){
-   
-    numTarjetaAux=numTarjetaIngresada.value;
-    numTarjetaAux=numTarjetaAux.trim();
+function AgregarGuion (event){
+    if(event !==8)
+    {
+        if(((numTarjetaIngresada.value.length+1)%5===0)&&(numTarjetaIngresada.value.length<19))
+        {
+            numTarjetaIngresada.value=numTarjetaIngresada.value+"-";
+        }
+    }
+}
+function QuitarGuion(numTarjetaIngresada){
+   /* temporal=numTarjetaIngresada.value;
+    temporal=temporal.replaceAll("-","");
+    return temporal;*/ 
+    numTarjetaIngresada=numTarjetaIngresada.value.replaceAll("-","");
+    return numTarjetaIngresada;
+}
+
+btnValidarTajeta.addEventListener("click", function(){
+    let temp=QuitarGuion(numTarjetaIngresada);
+    rellenarInputCorrectamente(temp);
+});
+
+function rellenarInputCorrectamente(cambio){
+    numTarjetaAux=cambio.trim();
     if(numTarjetaAux ==="")
     {
         numTarjetaIngresada.style.borderBottom="3.5px outset red";
@@ -42,6 +63,7 @@ function revisarSiSonNumeros(){
     }  
     if(numTarjetaArray.includes(NaN))
     {
+        numTarjetaIngresada.style.borderBottom="3.5px outset red";
         mostrarError.innerText="Ha ingresado valores no númericos";
     }
     else
@@ -81,14 +103,14 @@ function pantallaVerdadera(){
     divPantallaPedirTarjeta.style.display="none";
     divPantallaFalsa.style.display="none";
     divPantallaVerdadera.style.display="flex";
-    mostrarMensajeVerdadero.innerText="Su tarjeta :  ####-####-####-"+numTarjetaAux.substring(11,15)+"  es valida";
+    mostrarMensajeVerdadero.innerText="Su tarjeta : ####-####-####-"+numTarjetaAux.substring(11,15)+" es valida";
 }
 
 function pantallaFalsa(){
     divPantallaPedirTarjeta.style.display="none";
     divPantallaVerdadera.style.display="none";
     divPantallaFalsa.style.display="flex";
-    mostrarMensajeFalso.innerText="Su tarjeta :  ####-####-####-"+numTarjetaAux.substring(11,15)+"  es invalida";
+    mostrarMensajeFalso.innerText="Su tarjeta : ####-####-####-"+numTarjetaAux.substring(11,15)+" es invalida";
 }
 
 btnRegresarAPantallaDePedirTarjeta[0].addEventListener("click", function(){
@@ -127,6 +149,7 @@ function mostrarPerfilDeCreditValue(){
     boolPerfil=!boolPerfil;
     if(boolPerfil){
         txtPerfilDeCreditValue.style.display="flex";
+            
     }
     else
     {
