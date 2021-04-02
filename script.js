@@ -159,23 +159,21 @@ btnProceso.addEventListener("click", function(){
 function mostrarPerfilDeCreditValue(){
     boolPerfil=!boolPerfil;
     if(boolPerfil){
-        txtPerfilDeCreditValue.style.display="flex";
-            
+        txtPerfilDeCreditValue.classList.replace("displayNone", "displayFlex");  
     }
     else
     {
-        txtPerfilDeCreditValue.style.display="none";
+        txtPerfilDeCreditValue.classList.replace("displayFlex","displayNone");
     }
 }
 
 function mostrarProcesoDeCreditValue(){
     boolProceso=!boolProceso;
     if(boolProceso){
-        txtProcesoDeCreditValue.style.display="flex";
+        txtProcesoDeCreditValue.classList.replace("displayNone", "displayFlex");
     }
     else
     {
-        txtProcesoDeCreditValue.style.display="none";
+        txtProcesoDeCreditValue.classList.replace("displayFlex","displayNone");
     }
 }
-
