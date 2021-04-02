@@ -17,7 +17,7 @@ numTarjetaIngresada.addEventListener("keydown", function(event){
 });
 
 function AgregarGuion (event){
-    if(event !==8)
+    if(event.keyCode!==8)
     {
         if(((numTarjetaIngresada.value.length+1)%5===0)&&(numTarjetaIngresada.value.length<19))
         {
@@ -26,20 +26,16 @@ function AgregarGuion (event){
     }
 }
 function QuitarGuion(numTarjetaIngresada){
-   /* temporal=numTarjetaIngresada.value;
-    temporal=temporal.replaceAll("-","");
-    return temporal;*/ 
-    numTarjetaIngresada=numTarjetaIngresada.value.replaceAll("-","");
-    return numTarjetaIngresada;
+   return numTarjetaIngresada=numTarjetaIngresada.value.replaceAll("-","");
 }
 
 btnValidarTajeta.addEventListener("click", function(){
-    let temp=QuitarGuion(numTarjetaIngresada);
-    rellenarInputCorrectamente(temp);
+    temporal=QuitarGuion(numTarjetaIngresada);
+    rellenarInputCorrectamente(temporal);
 });
 
-function rellenarInputCorrectamente(cambio){
-    numTarjetaAux=cambio.trim();
+function rellenarInputCorrectamente(numerosSinGuion){
+    numTarjetaAux=numerosSinGuion.trim();
     if(numTarjetaAux ==="")
     {
         numTarjetaIngresada.style.borderBottom="3.5px outset red";
@@ -52,16 +48,31 @@ function rellenarInputCorrectamente(cambio){
     }
     else
     {
-        revisarSiSonNumeros();
+        revisarSiSonNumeros(numTarjetaAux);
     }
 }
 
-function revisarSiSonNumeros(){
+function revisarSiSonNumeros(valoresNumericos){
     for(let i=0; i<=15; i++)
     {
-        numTarjetaArray[i]=parseInt(numTarjetaAux.charAt(i));
+        numTarjetaArray[i]=parseInt(valoresNumericos.charAt(i));
     }  
-    if(numTarjetaArray.includes(NaN))
+    if((Number(valoresNumericos))===0)
+    {
+        numTarjetaIngresada.style.borderBottom="3.5px outset red";
+        mostrarError.innerText="No existe esa tarjeta";  
+    }
+    else if(Number(valoresNumericos))
+        {
+            evaluarSiEsUnaTarjetaVerdaderaOFalsa(numTarjetaArray); 
+        }
+    else
+        {
+            numTarjetaIngresada.style.borderBottom="3.5px outset red";
+         mostrarError.innerText="Ha ingresado valores no númericos";
+        }
+}   
+   /* if(numTarjetaArray.includes(NaN))
     {
         numTarjetaIngresada.style.borderBottom="3.5px outset red";
         mostrarError.innerText="Ha ingresado valores no númericos";
@@ -69,16 +80,16 @@ function revisarSiSonNumeros(){
     else
     {
         evaluarSiEsUnaTarjetaVerdaderaOFalsa(); 
-    }
-}
+    }*/
 
-function evaluarSiEsUnaTarjetaVerdaderaOFalsa(){
+
+function evaluarSiEsUnaTarjetaVerdaderaOFalsa(numerosEnArray){
     numTarjetaIngresada.style.borderBottom="2px solid black";
     let sumaDeLosDigitos=0;
     let numTarjetaArrayAux=[];
     for(i=0; i<=15; i++)
     {
-        numTarjetaArrayAux[i]=numTarjetaArray[i];
+        numTarjetaArrayAux[i]=numerosEnArray[i];
         if((i%2)===0)
         {
             numTarjetaArrayAux[i]=numTarjetaArrayAux[i]*2;
@@ -103,14 +114,14 @@ function pantallaVerdadera(){
     divPantallaPedirTarjeta.style.display="none";
     divPantallaFalsa.style.display="none";
     divPantallaVerdadera.style.display="flex";
-    mostrarMensajeVerdadero.innerText="Su tarjeta : ####-####-####-"+numTarjetaAux.substring(11,15)+" es valida";
+    mostrarMensajeVerdadero.innerText="Su tarjeta : ####-####-####-"+numTarjetaIngresada.value.substring(15,19)+" es valida";
 }
 
 function pantallaFalsa(){
     divPantallaPedirTarjeta.style.display="none";
     divPantallaVerdadera.style.display="none";
-    divPantallaFalsa.style.display="flex";
-    mostrarMensajeFalso.innerText="Su tarjeta : ####-####-####-"+numTarjetaAux.substring(11,15)+" es invalida";
+    divPantallaFalsa.style.display="flex"; 
+    mostrarMensajeFalso.innerText="Su tarjeta : ####-####-####-"+numTarjetaIngresada.value.substring(15,19)+" es invalida";
 }
 
 btnRegresarAPantallaDePedirTarjeta[0].addEventListener("click", function(){
