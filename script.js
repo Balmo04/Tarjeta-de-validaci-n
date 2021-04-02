@@ -13,7 +13,7 @@ let numTarjetaArray=[];
 let temporal="";
 
 numTarjetaIngresada.addEventListener("keydown", function(event){
- AgregarGuion(event);
+    AgregarGuion(event);
 });
 
 function AgregarGuion (event){
@@ -38,12 +38,12 @@ function rellenarInputCorrectamente(numerosSinGuion){
     numTarjetaAux=numerosSinGuion.trim();
     if(numTarjetaAux ==="")
     {
-        numTarjetaIngresada.style.borderBottom="3.5px outset red";
+        numTarjetaIngresada.classList.replace("bordeInferiorNegro", "bordeInferiorRojo");
         mostrarError.innerText="No ha ingresado nada";
     }
     else if(numTarjetaAux.length!==16)
     {
-        numTarjetaIngresada.style.borderBottom="3.5px outset red";
+        numTarjetaIngresada.classList.replace("bordeInferiorNegro", "bordeInferiorRojo");
         mostrarError.innerText="Ha ingresado "+numTarjetaAux.length+" digitos pero son 16 digitos";
     }
     else
@@ -59,7 +59,7 @@ function revisarSiSonNumeros(valoresNumericos){
     }  
     if((Number(valoresNumericos))===0)
     {
-        numTarjetaIngresada.style.borderBottom="3.5px outset red";
+        numTarjetaIngresada.classList.replace("bordeInferiorNegro", "bordeInferiorRojo");
         mostrarError.innerText="No existe esa tarjeta";  
     }
     else if(Number(valoresNumericos))
@@ -68,8 +68,8 @@ function revisarSiSonNumeros(valoresNumericos){
         }
     else
         {
-            numTarjetaIngresada.style.borderBottom="3.5px outset red";
-         mostrarError.innerText="Ha ingresado valores no númericos";
+            numTarjetaIngresada.classList.replace("bordeInferiorNegro", "bordeInferiorRojo");
+            mostrarError.innerText="Ha ingresado valores no númericos";
         }
 }   
    /* if(numTarjetaArray.includes(NaN))
@@ -84,7 +84,6 @@ function revisarSiSonNumeros(valoresNumericos){
 
 
 function evaluarSiEsUnaTarjetaVerdaderaOFalsa(numerosEnArray){
-    numTarjetaIngresada.style.borderBottom="2px solid black";
     let sumaDeLosDigitos=0;
     let numTarjetaArrayAux=[];
     for(i=0; i<=15; i++)
@@ -111,16 +110,16 @@ function evaluarSiEsUnaTarjetaVerdaderaOFalsa(numerosEnArray){
 }
 
 function pantallaVerdadera(){
-    divPantallaPedirTarjeta.style.display="none";
-    divPantallaFalsa.style.display="none";
-    divPantallaVerdadera.style.display="flex";
+    divPantallaPedirTarjeta.classList.replace("displayFlex","displayNone");
+    divPantallaFalsa.classList.replace("displayFlex","displayNone");
+    divPantallaVerdadera.classList.replace("displayNone","displayFlex");
     mostrarMensajeVerdadero.innerText="Su tarjeta : ####-####-####-"+numTarjetaIngresada.value.substring(15,19)+" es valida";
 }
 
 function pantallaFalsa(){
-    divPantallaPedirTarjeta.style.display="none";
-    divPantallaVerdadera.style.display="none";
-    divPantallaFalsa.style.display="flex"; 
+    divPantallaPedirTarjeta.classList.replace("displayFlex","displayNone");
+    divPantallaVerdadera.classList.replace("displayFlex","displayNone");
+    divPantallaFalsa.classList.replace("displayNone","displayFlex");
     mostrarMensajeFalso.innerText="Su tarjeta : ####-####-####-"+numTarjetaIngresada.value.substring(15,19)+" es invalida";
 }
 
@@ -133,11 +132,12 @@ btnRegresarAPantallaDePedirTarjeta[1].addEventListener("click", function(){
 });
 
 function regresarAPantallaPedirTarjeta(){
-    divPantallaFalsa.style.display="none";
-    divPantallaVerdadera.style.display="none";
-    divPantallaPedirTarjeta.style.display="flex";
+    divPantallaPedirTarjeta.classList.replace("displayNone","displayFlex");
+    divPantallaVerdadera.classList.replace("displayFlex","displayNone");
+    divPantallaFalsa.classList.replace("displayFlex","displayNone");
     numTarjetaIngresada.value=numTarjetaIngresada.value="";
     mostrarError.innerText="";
+    numTarjetaIngresada.classList.replace("bordeInferiorRojo", "bordeInferiorNegro");
 }
 
 const btnPerfil=document.getElementById("btn-PerfilDeCreditValue");

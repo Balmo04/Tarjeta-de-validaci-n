@@ -44,18 +44,18 @@
             </div>    
         </section>
         <aside id="ColocarTarjeta-Aside">
-            <div id="Pedir-tarjeta">
+            <div id="Pedir-tarjeta" class="displayFlex">
                 <h2 class="Titulo-Input TipoDeLetra-DellaRespira">Ingrese su tarjeta</h2>
-                <input type="text" id="input-ColocarTarjeta" maxlength="19">
+                <input type="text" id="input-ColocarTarjeta" maxlength="19" class="bordeInferiorNegro">
                 <p id="AnuncioDeError"></p>
                 <button id="btn-ValidarTarjeta">Validar</button>
             </div>
-            <div id="PantallaTarjetaVerdadera">
+            <div id="PantallaTarjetaVerdadera" class="displayNone">
                 <img src="img/Correcto.png" class="tamañoDeImagenes"/>
                 <p id="mostrarMensajeTarjetaVerdadera" class="estiloDeLetraParaMostrarTarjeta">Su tarjeta es valida</p>
                 <button class="regresarAPantallaPedirTarjeta">Regresar</button>
             </div>
-            <div id="PantallaTarjetaFalsa">
+            <div id="PantallaTarjetaFalsa" class="displayNone">
                 <img src="img/Error.png" class="tamañoDeImagenes"/>
                 <p id="mostrarMensajeTarjetaFalsa" class="estiloDeLetraParaMostrarTarjeta">Su tarjeta es invalida</p>
                 <button class="regresarAPantallaPedirTarjeta">Regresar</button>

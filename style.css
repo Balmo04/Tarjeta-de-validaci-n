@@ -91,7 +91,6 @@ main{
     background-color: #20b2aa;  
 }
 #Pedir-tarjeta{
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -106,7 +105,6 @@ main{
     border-top: none;
     border-right: none;
     border-left: none;
-    border-bottom: 2px groove #000;
 }
 
 #btn-ValidarTarjeta{
@@ -124,14 +122,12 @@ main{
 }
 /*Mostrar pantallas*/
 #PantallaTarjetaVerdadera{
-    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 10vh;
 }
 #PantallaTarjetaFalsa{
-    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -246,4 +242,17 @@ main{
     
 .TipoDeLetra-DellaRespira{
     font-family: 'Della Respira', serif;
+}
+
+.bordeInferiorRojo{
+    border-bottom: 3.5px outset red;
+}
+.bordeInferiorNegro{
+border-bottom: 2px groove #000;
+}
+.displayFlex{
+    display: flex;
+}
+.displayNone{
+    display: none;
 }
