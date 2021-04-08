@@ -11,7 +11,7 @@ let numTarjetaIngresada= document.getElementById("input-ColocarTarjeta");
 let numTarjetaAux="";
 let numTarjetaArray=[];
 let temporal="";
-
+console.log("Esta tarjeta es verdadera: 4137-8947-1175-5904");
 numTarjetaIngresada.addEventListener("keydown", function(event){
     AgregarGuion(event);
 });
